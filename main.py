@@ -22,7 +22,7 @@ if __name__ == "__main__":
     response = requests.get(GOAL_URL, headers={"Content-Type": "application/json"}).json()
     goal_matrix = response["goal"]
 
-    # Set index_base=1 if API uses 0-based indexing
+    # Set index_base=0 if API uses 0-based indexing
     mapper = AsyncGoalMapper(candidate_id=CANDIDATE_ID, concurrency=20, delay=0.05, index_base=0)
 
     # Optional: delete existing elements

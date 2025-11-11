@@ -6,14 +6,14 @@ from builders.goal_mapper import GoalMapper, AsyncGoalMapper
 
 if __name__ == "__main__":
 
-    #1
-    # builder = ShapeBuilder(delay=0.4)
+    #1 X shape
+    builder = ShapeBuilder(delay=0.4)
     
-    # points = builder.x_shape(start_row=2, start_col=2, size=7)
-    # builder.create_points(points)
-    # print("X shape created!")
+    points = builder.x_shape(start_row=2, start_col=2, size=7)
+    builder.create_points(points)
+    print("X shape created!")
 
-    #2
+    #2 butterfly pattern
     BASE_URL = Config.BASE_URL
     CANDIDATE_ID = Config.CANDIDATE_ID
 
@@ -26,7 +26,7 @@ if __name__ == "__main__":
     mapper = AsyncGoalMapper(candidate_id=CANDIDATE_ID, concurrency=20, delay=0.05, index_base=0)
 
     # Optional: delete existing elements
-    # asyncio.run(mapper.delete_goal(goal_matrix))
+    asyncio.run(mapper.delete_goal(goal_matrix))
 
     # Create the goal pattern exactly as in the matrix
     asyncio.run(mapper.create_goal(goal_matrix))
